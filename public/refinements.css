@@ -8,7 +8,7 @@
 .hero-copy > .eyebrow { margin-bottom: 20px; }
 .hero h1 { font-size: clamp(58px, 5.9vw, 114px); line-height: 1.05; letter-spacing: -.06em; }
 .hero h1 .becomes { font-size: 1em; }
-.photo-panorama { position: relative; overflow: hidden; min-width: 0; isolation: isolate; }
+.photo-panorama { position: relative; overflow: hidden; min-width: 0; isolation: isolate; perspective: 1200px; transform-style: preserve-3d; }
 .photo-panel { position: absolute; left: 0; top: 0; object-fit: cover; max-width: none; border-radius: 7px; will-change: transform; }
 .hero .manifesto-small { position: relative; z-index: 1; margin: 12px 20px 22px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: clamp(17px, 1.4vw, 22px); line-height: 1.5; }
 .hero-meta { position: static; margin: 0 3vw 20px; font-size: 9px; }
