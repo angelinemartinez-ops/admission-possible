@@ -44,17 +44,33 @@ export function initializePhotoScenes(images, reduced, isPaused) {
           scale = .88 + Math.min(1, Math.abs(n)) * .18;
           rotate = Math.sin(n * Math.PI) * 9;
         } else {
-          // Enter from the center once, then retain the complete layered panorama.
-          const n = (i - (nodes.length - 1) / 2) / ((nodes.length - 1) / 2);
-          const distance = Math.abs(n);
-          const progress = reduced.matches || isPaused() ? 1 : Math.max(0, Math.min(1, (time - scene.started - distance * .18) / .9));
-          const ease = 1 - Math.pow(1 - progress, 3);
-          x = w / 2 + Math.sign(n) * Math.pow(distance, 1.3) * w * .48 * ease;
-          y = h * .5 + (reduced.matches ? 0 : Math.sin(time * .35 + i * .45) * 2);
-          scale = (.46 + distance * .54) * (.8 + ease * .2);
-          rotate = n * -2;
-          perspective = n * -10;
-          opacity = ease;
+          // Continuous center-outward filmstrip: every frame is derived from one
+          // shared phase so the two mirrored streams stay synchronized.
+          const center = (nodes.length - 1) / 2;
+          const phase = reduced.matches || isPaused() ? 0 : (time * 0.34) % 1;
+          const q = i - center + phase;
+          const side = q < 0 ? -1 : 1;
+          const distance = Math.abs(q);
+          const maxDistance = center + 1;
+          const t = Math.min(1, distance / maxDistance);
+          const base = Math.min(150, Math.max(74, w * .105));
+          const width = base * (0.72 + t * 0.9);
+          const height = Math.min(h * .46, width * 1.14);
+          // Edge-to-edge near the vanishing point; perspective and rotation
+          // create the outward fan as the panels move toward the viewer.
+          const gapless = base * 0.72;
+          const x = w / 2 + side * (gapless * (distance + 0.5 * t * distance));
+          const y = h * .49 + Math.sin(time * .4 + i * .5) * 2;
+          const scale = 0.72 + t * 0.7;
+          const rotateY = side * (t * 34);
+          const rotateZ = side * (-t * 7);
+          const z = t * 260;
+          img.style.width = `${width}px`;
+          img.style.height = `${height}px`;
+          img.style.transform = `translate3d(${x}px,${y}px,${z}px) translate(-50%,-50%) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
+          img.style.opacity = 1;
+          img.style.zIndex = String(100 + Math.round(t * 100));
+          return;
         }
         img.style.transform = `translate3d(${x}px,${y}px,0) translate(-50%,-50%) perspective(1000px) rotateY(${perspective}deg) rotate(${rotate}deg) scale(${scale})`;
         img.style.opacity = opacity;
