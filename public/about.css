@@ -21,8 +21,8 @@
 .team-card:nth-child(2) { background: #FBE0FA; }
 .team-card:nth-child(3) { background: #E8D5F8; }
 .team-card:nth-child(4) { background: #F3DDF8; }
-.team-card:nth-child(5) { background: #DDF6FD; }
-.team-card:nth-child(6) { background: #DCE3FC; }
+.team-card:nth-child(5) { background: #DCE3FC; }
+.team-card:nth-child(6) { background: #DDF6FD; }
 .team-card-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
 .team-card > div:last-child { padding-top: 34px; }
 .team-card h3 { width: max-content; margin: 14px 0 8px; position: relative; left: 50%; transform: translateX(-50%); font-size: 25px; letter-spacing: -.08em; text-align: center; white-space: nowrap; }
