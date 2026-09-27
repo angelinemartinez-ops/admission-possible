@@ -58,7 +58,7 @@
   color: #aaa8b0;
   filter: none;
   display: block;
-  font-size: clamp(45px, 9.5vw, 180px);
+  font-size: clamp(32px, 8.7vw, 165px);
   padding: 0;
   opacity: 1;
   transform: translateY(0);
@@ -76,7 +76,10 @@
   background: none;
   color: inherit;
 }
-.cinematic-home .giant-brand-base { filter: grayscale(1); }
+.cinematic-home .giant-brand-base {
+  min-height: inherit;
+  filter: grayscale(1);
+}
 .cinematic-home .giant-brand-color {
   position: absolute;
   inset: 0;
@@ -147,9 +150,10 @@
 }
 
 @media (max-width: 720px) {
+  .cinematic-home .giant-brand { font-size: 8.2vw; }
   .cinematic-home .giant-brand > .giant-brand-base,
   .cinematic-home .giant-brand > .giant-brand-color { gap: 0; padding: 15px 0 42px; }
   .cinematic-home .giant-brand-base img,
-  .cinematic-home .giant-brand-color img { width: 30%; }
+  .cinematic-home .giant-brand-color img { width: 24%; }
   .cinematic-home .footer-panel { margin-top: -48px; }
 }
