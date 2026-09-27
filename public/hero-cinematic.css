@@ -10,6 +10,8 @@
 .cinematic-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; background: #090909; }
 .cinematic-collage { position: absolute; inset: 0; perspective: 1200px; }
 .cinematic-satellite { position: absolute; left: 50%; top: 50%; margin: 0; width: 18vw; aspect-ratio: 1.45; will-change: transform; }
+.cinematic-satellite-filler { display: none; }
+@media (max-width: 720px) { .cinematic-satellite-filler { display: block; } .cinematic-satellite-mobile-hidden { display: none; } }
 .cinematic-satellite img, .cinematic-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cinematic-track { position: absolute; inset: 0; display: flex; width: 400%; z-index: 2; will-change: transform; }
 .cinematic-panel { flex: 0 0 25%; height: 100%; margin: 0; transform-origin: center; }

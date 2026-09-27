@@ -5,9 +5,11 @@ export function initializePhotoScenes(images, reduced, isPaused) {
     const selection = final ? images.slice(0, 21) : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
     const nodes = selection.map((photo, i) => {
       const img = document.createElement('img');
-      img.src = photo.src; img.alt = ''; img.className = 'photo-panel';
-      // Moving offscreen panels must load before they enter the conveyor.
+      img.alt = ''; img.className = 'photo-panel';
+      // The conveyor only displays small cards; load their lighter versions early.
       img.loading = 'eager'; img.decoding = 'async';
+      if (final) img.addEventListener('error', () => {img.src = photo.src}, {once: true});
+      img.src = final ? `assets/campus-card-${i}.webp` : photo.src;
       el.append(img);
       return {img, i};
     });
