@@ -4,7 +4,7 @@
   --landing-title-shift: 0px;
   position: relative;
   height: 240svh;
-  background: #f1eee8;
+  background: var(--paper);
   color: var(--ink);
 }
 
@@ -54,8 +54,13 @@
   margin: 0;
   text-align: center;
   color: var(--lavender);
+  background: linear-gradient(100deg, var(--pink) 0%, var(--plum) 18%, var(--lavender) 43%, var(--blue) 64%, var(--cyan) 84%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font: 800 clamp(72px, 12vw, 220px)/.78 Arial, Helvetica, sans-serif;
   letter-spacing: -.095em;
+  text-transform: uppercase;
   pointer-events: none;
   transform: translate(-50%, calc(-50% + var(--landing-title-shift)));
   will-change: transform;
