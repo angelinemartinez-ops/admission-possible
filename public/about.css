@@ -22,7 +22,7 @@
 .team-card:nth-child(3) { background: #E8D5F8; }
 .team-card:nth-child(4) { background: #DCE3FC; }
 .team-card:nth-child(5) { background: #DDF6FD; }
-.team-card-photo { width: calc(100% + 48px); margin-left: -24px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
+.team-card-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
 .team-card > div:last-child { padding-top: 34px; }
 .team-card h3 { width: max-content; margin: 34px 0 8px; position: relative; left: 50%; transform: translateX(-50%); font-size: 25px; letter-spacing: -.08em; text-align: center; white-space: nowrap; }
 .team-card p { margin: 0; color: #555; line-height: 1.45; text-align: center; }
@@ -38,7 +38,6 @@
   .about-copy { margin: 0; font-size: 21px; }
   .about-section#mission .about-copy { margin-left: auto; margin-right: auto; }
   .team-grid { grid-template-columns: 1fr; }
-  .team-card-photo { width: 100%; margin-left: 0; }
   .team-card { min-height: 230px; }
   .about-footer { display: block; }
   .about-footer > * + * { display: block; margin-top: 14px; }
