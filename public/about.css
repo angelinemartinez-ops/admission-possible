@@ -24,15 +24,8 @@
 .team-card:nth-child(5) { background: #DDF6FD; }
 .team-card-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
 .team-card > div:last-child { padding-top: 34px; }
-.team-card h3 { width: max-content; margin: 14px 0 8px; position: relative; left: 50%; transform: translateX(-50%); font-size: 25px; letter-spacing: -.08em; text-align: center; white-space: nowrap; }
-.team-card p { margin: 0; color: #555; line-height: 1.45; text-align: center; }
-.team-tags { display: flex; flex-wrap: wrap; align-content: flex-start; justify-content: center; gap: 6px; min-height: 60px; margin: 0 auto; max-width: 100%; }
-.team-tags span { display: inline-flex; align-items: center; min-height: 24px; padding: 3px 9px; border-radius: 999px; background: var(--lavender); color: var(--ink); font-size: 10px; line-height: 1.1; letter-spacing: .01em; white-space: nowrap; }
-.team-tags span:nth-child(2) { background: var(--cyan); }
-.team-tags span:nth-child(3) { background: var(--plum); }
-.team-tags span:nth-child(4) { background: var(--blue); }
-.team-tags span:nth-child(5) { background: var(--pink); }
-.team-tags span:nth-child(6) { background: var(--lavender); }
+.team-card h3 { margin: 34px 0 8px; font-size: 25px; letter-spacing: -.06em; white-space: nowrap; }
+.team-card p { margin: 0; color: #555; line-height: 1.45; }
 .about-footer { margin-top: 40px; padding: 34px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; font-size: 13px; color: #666; background: var(--paper); }
 @media(max-width:720px) {
   .about-page { padding: 80px 20px 0; }
