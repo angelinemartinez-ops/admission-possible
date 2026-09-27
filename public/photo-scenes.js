@@ -2,7 +2,7 @@
 export function initializePhotoScenes(images, reduced, isPaused) {
   const scenes = [...document.querySelectorAll('[data-scene]')].map(el => {
     const final = el.dataset.scene === 'final';
-    const selection = final ? [2,4,6,7,9,13,15,17,37,21,27,22,28,23,29,24,30,25,31,26,32,33,34,35,36,38,0,12].map(i => images[i]) : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
+    const selection = final ? images.slice(0, 21) : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
     const nodes = selection.map((photo, i) => {
       const img = document.createElement('img');
       img.src = photo.src; img.alt = ''; img.className = 'photo-panel';
@@ -38,8 +38,8 @@ export function initializePhotoScenes(images, reduced, isPaused) {
         if (final) {
           // Each panel crosses the same continuous arc and wraps entirely offscreen.
           const t = (i / nodes.length + time / 34) % 1;
-          const extent = w + 620;
-          x = -310 + t * extent;
+          const extent = w + 580;
+          x = -290 + t * extent;
           const n = (x - w / 2) / (w / 2);
           y = h * .36 + Math.cos(Math.min(1.4, Math.abs(n)) * Math.PI) * h * .20;
           scale = .88 + Math.min(1, Math.abs(n)) * .18;
