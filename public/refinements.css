@@ -178,7 +178,8 @@ footer:not(.simple-footer) { padding-top: 0; }
   .hero { padding-top: 86px; }
   .uni-logo[data-university="brown"] { width: 165px; flex-basis: 165px; height: 54px; filter: grayscale(1) contrast(1.05); }
   .pathway-sticky { padding-top: 72px; padding-bottom: 22px; }
-  .pathway-stage { margin-top: 24px; margin-bottom: 18px; }
+  .pathway-stage { margin-top: 24px; margin-bottom: 18px; grid-template-rows: auto auto auto; align-items: start; }
+  .pathway-stage > .fact { align-self: start; height: auto; }
   .pathway-center { min-height: 0; padding: 20px; }
   .pathway-logo { height: 32px; margin-top: 9px; }
   .pathway-center .who { margin-top: 12px; padding-top: 12px; }

@@ -2,11 +2,12 @@
 export function initializePhotoScenes(images, reduced, isPaused) {
   const scenes = [...document.querySelectorAll('[data-scene]')].map(el => {
     const final = el.dataset.scene === 'final';
-    const selection = final ? images : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
+    const selection = final ? images.slice(0, 21) : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
     const nodes = selection.map((photo, i) => {
       const img = document.createElement('img');
       img.src = photo.src; img.alt = ''; img.className = 'photo-panel';
-      img.loading = final ? 'lazy' : 'eager'; img.decoding = 'async';
+      // Moving offscreen panels must load before they enter the conveyor.
+      img.loading = 'eager'; img.decoding = 'async';
       el.append(img);
       return {img, i};
     });
@@ -37,8 +38,8 @@ export function initializePhotoScenes(images, reduced, isPaused) {
         if (final) {
           // Each panel crosses the same continuous arc and wraps entirely offscreen.
           const t = (i / nodes.length + time / 34) % 1;
-          const extent = w + 620;
-          x = -310 + t * extent;
+          const extent = w + 580;
+          x = -290 + t * extent;
           const n = (x - w / 2) / (w / 2);
           y = h * .36 + Math.cos(Math.min(1.4, Math.abs(n)) * Math.PI) * h * .20;
           scale = .88 + Math.min(1, Math.abs(n)) * .18;
@@ -58,7 +59,8 @@ export function initializePhotoScenes(images, reduced, isPaused) {
         }
         img.style.transform = `translate3d(${x}px,${y}px,0) translate(-50%,-50%) perspective(1000px) rotateY(${perspective}deg) rotate(${rotate}deg) scale(${scale})`;
         img.style.opacity = opacity;
-        img.style.zIndex = String(final ? i : Math.abs(i - 6));
+        // The photo farther along the belt sits over the one behind it, even after wrapping.
+        img.style.zIndex = String(final ? Math.round(x + 1000) : Math.abs(i - 6));
       });
     });
     requestAnimationFrame(frame);
