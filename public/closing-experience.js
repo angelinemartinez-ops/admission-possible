@@ -1,8 +1,12 @@
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 if (matchMedia('(hover: hover) and (pointer: fine)').matches && !reducedMotion.matches) {
-  document.querySelectorAll('.spotlight-surface').forEach(surface => {
+  document.querySelectorAll('.closing-experience').forEach(surface => {
     surface.addEventListener('pointermove', event => {
+      if (event.target.closest('.footer-panel')) {
+        surface.style.setProperty('--spot-opacity', '0');
+        return;
+      }
       const bounds = surface.getBoundingClientRect();
       surface.style.setProperty('--spot-x', `${event.clientX - bounds.left}px`);
       surface.style.setProperty('--spot-y', `${event.clientY - bounds.top}px`);
@@ -16,6 +20,17 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches && !reducedMotion.m
 
 const footer = document.querySelector('.closing-footer');
 const brand = footer?.querySelector('.giant-brand');
+if (brand && matchMedia('(hover: hover) and (pointer: fine)').matches && !reducedMotion.matches) {
+  brand.addEventListener('pointermove', event => {
+    const bounds = brand.getBoundingClientRect();
+    brand.style.setProperty('--logo-x', `${event.clientX - bounds.left}px`);
+    brand.style.setProperty('--logo-y', `${event.clientY - bounds.top}px`);
+    brand.style.setProperty('--logo-opacity', '1');
+  }, { passive: true });
+  brand.addEventListener('pointerleave', () => {
+    brand.style.setProperty('--logo-opacity', '0');
+  });
+}
 if (footer && brand && !reducedMotion.matches) {
   const observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {

@@ -19,7 +19,7 @@ export function initializePhotoScenes(images, reduced, isPaused) {
   });
   function size(scene) {
     const {width: w, height: h, final} = scene;
-    const width = final ? Math.min(220, Math.max(112, w * .115)) : Math.min(260, Math.max(112, w * .16));
+    const width = final ? Math.min(240, Math.max(125, w * .13)) : Math.min(260, Math.max(112, w * .16));
     const height = final ? width : Math.min(h * .92, w * .205);
     scene.nodes.forEach(({img}) => {img.style.width = `${width}px`; img.style.height = `${height}px`;});
   }
