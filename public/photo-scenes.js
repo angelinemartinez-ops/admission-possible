@@ -59,7 +59,8 @@ export function initializePhotoScenes(images, reduced, isPaused) {
         }
         img.style.transform = `translate3d(${x}px,${y}px,0) translate(-50%,-50%) perspective(1000px) rotateY(${perspective}deg) rotate(${rotate}deg) scale(${scale})`;
         img.style.opacity = opacity;
-        img.style.zIndex = String(final ? i : Math.abs(i - 6));
+        // The photo farther along the belt sits over the one behind it, even after wrapping.
+        img.style.zIndex = String(final ? Math.round(x + 1000) : Math.abs(i - 6));
       });
     });
     requestAnimationFrame(frame);
