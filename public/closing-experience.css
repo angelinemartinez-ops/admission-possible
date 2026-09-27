@@ -1,0 +1,110 @@
+/* The final invitation and footer share one dark visual language. */
+.cinematic-home .join-scene,
+.cinematic-home .closing-footer {
+  background-color: #171719;
+  background-image: radial-gradient(circle, #8f80a450 0 1px, transparent 1.35px);
+  background-size: 23px 23px;
+}
+
+.cinematic-home .closing-footer {
+  color: #f4f2f7;
+  border-top: 0;
+  margin-top: -1px;
+}
+
+.spotlight-surface {
+  --spot-x: 50%;
+  --spot-y: 50%;
+  --spot-opacity: 0;
+  position: relative;
+}
+
+.spotlight-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--spot-opacity);
+  background-image:
+    radial-gradient(circle at var(--spot-x) var(--spot-y), #b388eb26, transparent 180px),
+    radial-gradient(circle, #b388eb 0 2.8px, transparent 3.4px);
+  background-size: auto, 23px 23px;
+  -webkit-mask-image: radial-gradient(circle 170px at var(--spot-x) var(--spot-y), #000 12%, transparent 100%);
+  mask-image: radial-gradient(circle 170px at var(--spot-x) var(--spot-y), #000 12%, transparent 100%);
+  transition: opacity 180ms ease;
+}
+
+.cinematic-home .join-scene .photo-arc { z-index: 2; }
+.cinematic-home .join-scene-copy { z-index: 3; }
+
+.cinematic-home .giant-brand {
+  position: relative;
+  z-index: 2;
+  color: #aaa8b0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: filter 400ms ease, opacity 700ms ease, transform 700ms ease;
+}
+.cinematic-home .giant-brand img {
+  mix-blend-mode: normal;
+  filter: grayscale(1) brightness(1.4);
+}
+.cinematic-home .giant-brand:hover img,
+.cinematic-home .giant-brand:focus-visible img { filter: none; }
+.cinematic-home .closing-footer.closing-motion-ready .giant-brand {
+  opacity: .45;
+  transform: translateY(36px);
+}
+.cinematic-home .closing-footer.closing-motion-ready .giant-brand.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cinematic-home .footer-panel {
+  z-index: 3;
+  margin-top: -12px;
+  border-color: #47464c;
+  background-color: #29292d;
+  background-image: radial-gradient(circle, #a298b333 0 1px, transparent 1.35px);
+  background-size: 23px 23px;
+  color: #f0eff4;
+}
+.cinematic-home .footer-panel::after { z-index: 0; }
+.cinematic-home .footer-panel::before {
+  content: "";
+  position: absolute;
+  top: -27px;
+  right: 5vw;
+  z-index: 4;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #5a5960;
+  border-radius: 50%;
+  background: #29292d url("assets/brand-transparent.png") center / 47px no-repeat;
+  pointer-events: none;
+}
+.cinematic-home .footer-panel > * { position: relative; z-index: 1; }
+.cinematic-home .footer-bottom,
+.cinematic-home .footer-meta { border-color: #5a5960; }
+.cinematic-home .footer-bottom .eyebrow,
+.cinematic-home .footer-meta { color: #bcbac4; }
+.cinematic-home .footer-bottom a {
+  width: fit-content;
+  transition: color 200ms ease, transform 200ms ease;
+}
+.cinematic-home .footer-bottom a:hover,
+.cinematic-home .footer-bottom a:focus-visible {
+  color: #c49df6;
+  transform: translateX(4px);
+}
+.cinematic-home .footer-meta a:hover,
+.cinematic-home .footer-meta a:focus-visible { color: #c49df6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-surface::after { display: none; }
+  .cinematic-home .closing-footer.closing-motion-ready .giant-brand {
+    opacity: 1;
+    transform: none;
+  }
+}
