@@ -2,11 +2,12 @@
 export function initializePhotoScenes(images, reduced, isPaused) {
   const scenes = [...document.querySelectorAll('[data-scene]')].map(el => {
     const final = el.dataset.scene === 'final';
-    const selection = final ? images : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
+    const selection = final ? [2,4,6,7,9,13,15,17,37,21,27,22,28,23,29,24,30,25,31,26,32,33,34,35,36,38,0,12].map(i => images[i]) : [0, 8, 4, 12, 2, 7, 14, 6, 13, 17, 1, 16, 3].map(i => images[i]);
     const nodes = selection.map((photo, i) => {
       const img = document.createElement('img');
       img.src = photo.src; img.alt = ''; img.className = 'photo-panel';
-      img.loading = final ? 'lazy' : 'eager'; img.decoding = 'async';
+      // Moving offscreen panels must load before they enter the conveyor.
+      img.loading = 'eager'; img.decoding = 'async';
       el.append(img);
       return {img, i};
     });
