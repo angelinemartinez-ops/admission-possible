@@ -45,7 +45,6 @@ if (hero) {
     panels[0].style.transform = `scale(${initial+(1-initial)*expansion})`;
     panels.slice(1).forEach(panel => { panel.style.visibility = expansion >= .999 ? 'visible' : 'hidden'; });
     track.style.transform = `translate3d(${-horizontal*(panels.length-1)*w}px,0,0)`;
-    hero.querySelector('.cinematic-scroll-cue').style.opacity = String(1-clamp(progress/.12));
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(render); }
   document.body.classList.add('cinematic-active');
@@ -53,11 +52,5 @@ if (hero) {
   addEventListener('resize', schedule);
   reduced.addEventListener('change', schedule);
   new ResizeObserver(schedule).observe(stage);
-  hero.querySelector('.cinematic-skip').addEventListener('click', () => {
-    // Skip the whole pinned region and transfer keyboard focus into normal content.
-    scrollTo({top: hero.offsetTop + hero.offsetHeight, behavior:'instant'});
-    render();
-    document.querySelector('.logo-window')?.focus({preventScroll:true});
-  });
   render();
 }
