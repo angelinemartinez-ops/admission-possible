@@ -17,7 +17,7 @@ if (landing) {
     const progress = clamp(-rect.top / travel);
     // On desktop, lift the description before the logo strip enters the viewport.
     const storyExit = innerWidth > 720
-      ? smooth(clamp((progress - .68) / .32)) * innerHeight * .05
+      ? smooth(clamp((progress - .68) / .32)) * innerHeight * .08
       : 0;
     landing.style.setProperty('--landing-story-opacity', (.42 + progress * .58).toFixed(4));
     landing.style.setProperty('--landing-story-shift', `${((1 - progress) * innerHeight * .025 - storyExit).toFixed(1)}px`);
