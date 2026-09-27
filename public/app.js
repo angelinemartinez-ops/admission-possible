@@ -1,5 +1,6 @@
 import {initializePhotoScenes} from './photo-scenes.js';
 import {pathways} from './pathways.js';
+import './shared-footer.js';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = false;
 const nav = document.querySelector('.nav');
