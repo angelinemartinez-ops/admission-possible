@@ -24,9 +24,9 @@
 .team-card:nth-child(5) { background: #DDF6FD; }
 .team-card-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
 .team-card > div:last-child { padding-top: 34px; }
-.team-card h3 { width: max-content; margin: 34px 0 8px; position: relative; left: 50%; transform: translateX(-50%); font-size: 25px; letter-spacing: -.08em; text-align: center; white-space: nowrap; }
+.team-card h3 { width: max-content; margin: 14px 0 8px; position: relative; left: 50%; transform: translateX(-50%); font-size: 25px; letter-spacing: -.08em; text-align: center; white-space: nowrap; }
 .team-card p { margin: 0; color: #555; line-height: 1.45; text-align: center; }
-.team-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0 auto 16px; max-width: 100%; }
+.team-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0 auto; max-width: 100%; }
 .team-tags span { display: inline-flex; align-items: center; min-height: 24px; padding: 3px 9px; border-radius: 999px; background: var(--lavender); color: var(--ink); font-size: 10px; line-height: 1.1; letter-spacing: .01em; white-space: nowrap; }
 .team-tags span:nth-child(2) { background: var(--cyan); }
 .team-tags span:nth-child(3) { background: var(--plum); }
