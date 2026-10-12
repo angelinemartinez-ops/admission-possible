@@ -3,7 +3,7 @@ import {pathways} from './pathways.js';
 import './shared-footer.js';
 const favicon = document.querySelector('link[rel="icon"]');
 if (favicon) {
-  favicon.href = 'assets/brand-favicon-large.png';
+  favicon.href = 'assets/favicon-provided-large.png';
   favicon.type = 'image/png';
 }
 document.querySelectorAll('.nav-cta, .guide-cta .button').forEach(button => {
