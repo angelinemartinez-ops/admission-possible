@@ -1,6 +1,17 @@
 import {initializePhotoScenes} from './photo-scenes.js';
 import {pathways} from './pathways.js';
 import './shared-footer.js';
+const favicon = document.querySelector('link[rel="icon"]');
+if (favicon) {
+  favicon.href = 'assets/brand-transparent.png';
+  favicon.type = 'image/png';
+}
+document.querySelectorAll('.nav-cta, .guide-cta .button').forEach(button => {
+  const label = [...button.childNodes].find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+  if (label) label.textContent = 'Book a Session ';
+});
+const questionsLinkIcon = document.querySelector('.faq .text-link span');
+if (questionsLinkIcon) questionsLinkIcon.textContent = '+';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = false;
 const nav = document.querySelector('.nav');
