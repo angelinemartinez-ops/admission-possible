@@ -4,6 +4,17 @@
   padding: 136px 0 0; display: grid; place-items: initial; background-color: var(--paper);
   grid-template-rows: auto clamp(230px, 23vw, 440px) minmax(82px, auto) auto auto;
 }
+
+.faq > div > .text-link span {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq > div > .text-link {
+  gap: 8px;
+}
 .hero-copy { padding: 0 4vw; pointer-events: auto; transform: translateY(6px); }
 .hero-copy > .eyebrow { margin-bottom: 20px; text-transform: uppercase; }
 .hero h1 { font-size: clamp(58px, 5.9vw, 114px); line-height: 1.05; letter-spacing: -.06em; }
