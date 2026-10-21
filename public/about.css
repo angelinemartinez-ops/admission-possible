@@ -15,12 +15,13 @@
 .about-copy { max-width: 850px; margin-left: auto; font-size: clamp(20px, 2vw, 30px); line-height: 1.35; }
 .about-section#mission .about-copy { margin-left: auto; margin-right: auto; }
 .about-copy p + p { margin-top: 26px; }
-.team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .team-card { min-height: 300px; padding: 28px; border: 1px solid var(--line); border-radius: 10px; background: #fafafa; display: flex; flex-direction: column; justify-content: flex-start; }
 .team-card:nth-child(1) { background: linear-gradient(145deg, #FBE4FA, #F3DDF8); }
 .team-card:nth-child(2) { background: linear-gradient(145deg, #E8D5F8, #DCE3FC); }
 .team-card:nth-child(3) { background: linear-gradient(145deg, #DCE3FC, #DDF6FD); }
-.team-card-photo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
+.team-card:nth-child(4) { background: linear-gradient(145deg, #F3DDF8, #E8D5F8); }
+.team-card-photo { width: 100%; height: auto; object-fit: contain; object-position: center; border-radius: 6px; background: var(--paper); border: 1px dashed var(--line); }
 .team-card > div:last-child { padding-top: 34px; }
 .team-card h3 { width: max-content; margin: 14px 0 8px; position: relative; left: 50%; transform: translateX(-50%); font-size: 25px; letter-spacing: -.08em; text-align: center; white-space: nowrap; }
 .team-card p { margin: 0; color: #555; line-height: 1.45; text-align: center; }
@@ -32,7 +33,20 @@
 .team-tags span:nth-child(5) { background: var(--pink); }
 .team-tags span:nth-child(6) { background: var(--lavender); }
 .about-footer { margin-top: 40px; padding: 34px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; font-size: 13px; color: #666; background: var(--paper); }
-@media(max-width:1200px) {
+@media(min-width:901px) {
+  .team-card { padding: 16px 14px 24px; }
+  .team-card-photo { aspect-ratio: 2 / 3; height: auto; object-fit: cover; object-position: center 25%; }
+  .team-card > div:last-child { padding-top: 24px; }
+  .team-tags { min-height: 66px; gap: 6px; }
+  .team-tags span { font-size: 12px; min-height: 29px; padding: 5px 10px; }
+  .team-card p { font-size: clamp(17px, 1.45vw, 21px); line-height: 1.5; }
+  .about-section#founding-team { padding-bottom: 40px; }
+  #founding-team { scroll-margin-top: 0; padding-top: 24px; }
+  #founding-team .about-section-heading { max-width: none; margin-bottom: 24px; }
+  #founding-team h2 { font-size: clamp(36px, 3.5vw, 52px); }
+  .team-card h3 { width: auto; left: auto; transform: none; font-size: clamp(23px, 2vw, 29px); letter-spacing: -.055em; white-space: normal; margin: 18px 0 14px; }
+}
+@media(max-width:900px) {
   .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media(max-width:720px) {
